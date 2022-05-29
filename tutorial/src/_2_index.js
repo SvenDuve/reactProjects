@@ -4,24 +4,6 @@ import * as ReactDOM from "react-dom";
 // CSS
 import './index.css';
 
-// setup vars
-
-const firstBook ={
-  booklink: 'https://images-na.ssl-images-amazon.com/images/I/81a5KHEkwQL._AC_UL906_SR906,600_.jpg',
-  author: 'I am an idiot',
-  title: 'I am a stupid book'
-}
-const secondBook ={
-  booklink: 'https://images-na.ssl-images-amazon.com/images/I/61m1Vxw8tiL._AC_UL906_SR906,600_.jpg',
-  author: 'I am a second idiot',
-  title: 'I am a even more stupid  book'
-}
-
-// const author = 'I am an idiot'
-// const booklink = 'https://images-na.ssl-images-amazon.com/images/I/81a5KHEkwQL._AC_UL906_SR906,600_.jpg'
-// const title = 'I am a stupid book'
-
-
 // stateless fucntiona component
 // always return JSX I mean alwas return somehtiung
 
@@ -41,20 +23,21 @@ const secondBook ={
 function BookList() {
   return( 
     <section className="booklist">
-      <Book title={firstBook.title} author={firstBook.author} imageSource={firstBook.booklink}/>
-      <Book title={secondBook.title} author={secondBook.author} imageSource={secondBook.booklink}/>
+      <Book />
     </section>);
 }
 
 // will also be read inside the funtion
+const author = 'I am an idiot'
+const booklink = 'https://images-na.ssl-images-amazon.com/images/I/81a5KHEkwQL._AC_UL906_SR906,600_.jpg'
 
-const Book = (props) => {
-  console.log(props);
+const Book = () => {
+    const title = 'I am a stupid book'
   return( 
   <article className="book">
-    <img src={props.imageSource} alt="" />
-    <h1>{props.title}</h1>
-    <h4>{props.author}</h4>
+    <img src={booklink} alt="" />
+    <h1>{title.toLowerCase()}</h1>
+    <h4>{author}</h4>
   </article>)
 };
 
