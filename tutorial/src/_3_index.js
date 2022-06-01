@@ -4,10 +4,19 @@ import * as ReactDOM from "react-dom";
 // CSS
 import './index.css';
 
-import {books} from './books'
-import Book from "./Book";
-
 // setup vars
+
+const firstBook ={
+  booklink: 'https://images-na.ssl-images-amazon.com/images/I/81a5KHEkwQL._AC_UL906_SR906,600_.jpg',
+  author: 'I am an idiot',
+  title: 'I am a stupid book'
+}
+const secondBook ={
+  booklink: 'https://images-na.ssl-images-amazon.com/images/I/61m1Vxw8tiL._AC_UL906_SR906,600_.jpg',
+  author: 'I am a second idiot',
+  title: 'I am a even more stupid  book'
+}
+
 // const author = 'I am an idiot'
 // const booklink = 'https://images-na.ssl-images-amazon.com/images/I/81a5KHEkwQL._AC_UL906_SR906,600_.jpg'
 // const title = 'I am a stupid book'
@@ -31,17 +40,23 @@ import Book from "./Book";
 
 function BookList() {
   return( 
-    <section className="booklist">{books.map((book, index) => {
-        console.log(book)
-        return (
-            // using ... the splat operator splits up all the objects,
-            <Book key={index} {...book}></Book>
-        )
-        })}
+    <section className="booklist">
+      <Book title={firstBook.title} author={firstBook.author} imageSource={firstBook.booklink} />
+      <Book title={secondBook.title} author={secondBook.author} imageSource={secondBook.booklink}/>
     </section>);
 }
 
+// will also be read inside the funtion
 
+const Book = (props) => {
+  console.log(props);
+  return( 
+  <article className="book" style={{color:'blue', fontSize:'50px'}} >
+    <img src={props.imageSource} alt="" />
+    <h1>{props.title}</h1>
+    <h4>{props.author}</h4>
+  </article>)
+};
 
 
 // const Person = () => <h2>John Doe</h2>;
